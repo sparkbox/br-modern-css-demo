@@ -1,40 +1,51 @@
 .card {
-  border: 1px solid #F4F4F4;
+  border: 1px solid $color-border--card;
   border-radius: 0.5rem;
   box-sizing: border-box;
-  color: #333333;
-  font-family: 'Avenir Next', 'Lato', sans-serif;
+  box-shadow: 0 1.5em 2em -1em $color-box-shadow;
+  color: $color-text--card;
+  font-family: $font-stack;
   font-weight: 300;
   margin: 1rem;
-  padding-top: 1rem;
+  padding-top: 3vh;3
   padding-right: 0;
-  padding-bottom: 1rem;
+  padding-bottom: 3vh;
   padding-left: 0;
+
+  @media screen and (min-width: $break) {
+    @supports (display: flex) {
+        display: flex;
+      }
+    }
 }
+
 
 .card__right {
   width: 100%;
   box-sizing: border-box;
   padding: 1.5rem;
-}
-@media screen and (min-width: 40rem) {
-  .card__right {
+
+  @media screen and (min-width: $break) {
     width: 55%;
     float: right;
   }
+  @supports (display: flex) {
+   order: 1;
+  }
 }
+
 .card__left {
   width: 100%;
   margin: 0;
   box-sizing: border-box;
   padding: 1.5rem;
   height: auto;
-}
-@media screen and (min-width: 40rem) {
-  .card__left {
+
+  @media screen and (min-width: $break) {
     width: 45%;
   }
 }
+
 .card__sale-flag, .card__cta {
   font-weight: 700;
   text-transform: uppercase;
@@ -43,8 +54,8 @@
   display: inline-block;
 }
 .card__sale-flag {
-  color: #FFF;
-  background-color: #5CC1DE;
+  color: $color-text--flag;
+  background-color: $color-bkgrd--flag;
   font-size: 0.85rem;
   padding: 0.25rem 0.75rem;
 }
@@ -54,9 +65,21 @@
   padding: 0.5rem 1rem;
   border: none;
   cursor: pointer;
-  color: #FFF;
-  background-color: #6FD830;
+  color: $color-text--cta;
+  background-color: $color-bkgrd--cta;
+  transition: all 250ms ease;
+  position: relative;
+  z-index: 999;
+
+  &:not(.card__cta--on-sale) {
+    background-color: $color-bkgrd--cta-sale;
+  }
+  &:hover {
+    transform: scale(1.1);
+    background-image: $gradient;
+  }
 }
+
 .card__name {
   letter-spacing: 1px;
   font-weight: 300;
@@ -64,18 +87,22 @@
   margin-bottom: 0.25rem;
   font-size: 2.25rem;
 }
+
 .card__price {
   font-size: 3rem;
   font-weight: 700;
   margin-top: 0.25rem;
   margin-bottom: 0;
 }
+
 .card__image {
   box-sizing: border-box;
-}
-.card__image img {
-  width: 100%;
-  background-color: #F4F4F4;
-  border: 1px solid #E8E8E8;
-  border-radius: 0.5rem;
+  position: relative;
+
+  & img {
+    width: 100%;
+    background-color: $color-bkgrd--image;
+    border: 1px solid $color-border--image;
+    border-radius: 0.5rem;
+  }
 }
