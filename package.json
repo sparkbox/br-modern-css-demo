@@ -14,9 +14,7 @@
   "license": "MIT",
   "dependencies": {
     "globby": "^6.1.0",
-    "inform": "0.0.2",
     "node-sass": "^4.5.3",
-    "npm-run-all": "^4.0.2",
-    "scss-splinter": "^0.4.3"
+    "npm-run-all": "^4.0.2"
   }
 }
