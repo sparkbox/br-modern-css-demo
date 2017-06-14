@@ -1,0 +1,15 @@
+{
+  "name": "${_.kebabCase(projectName)}",
+  "version": "1.0.0",
+  "description": "${_.kebabCase(projectDescription)}",
+  "author": "Put Your Name Here :)",
+  "scripts": {
+    "postinstall": "node sds-init.js",
+    "start": "run-p css server",
+    "script-1": "do something",
+    "script-2": "do something"
+  },
+  "devDependencies": {
+    "shelljs": "latest"
+  }
+}
