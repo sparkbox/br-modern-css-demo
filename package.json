@@ -4,8 +4,9 @@
   "description": "A Demo of Modern CSS",
   "author": "catherine meade <cat@heysparkbox.com>",
   "scripts": {
-    "start": "run-p sass",
-    "sass": "node tasks/sass.js"
+    "start": "npm run sass",
+    "sass": "node tasks/sass.js",
+    "postsass": "postcss dist/css/*.css --replace -c ./postcss.config.js"
   },
   "devDependencies": {
     "shelljs": "latest"
@@ -15,6 +16,7 @@
   "dependencies": {
     "globby": "^6.1.0",
     "node-sass": "^4.5.3",
-    "npm-run-all": "^4.0.2"
+    "npm-run-all": "^4.0.2",
+    "postcss-cli": "^4.1.0"
   }
 }

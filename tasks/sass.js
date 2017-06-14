@@ -4,6 +4,7 @@ const path = require('path');
 const globby = require('globby');
 const shell = require('shelljs');
 const nodeSass = require('node-sass');
+const inform = require('./inform');
 
 const PRODUCTION = process.env.NODE_ENV === 'production';
 
@@ -25,12 +26,14 @@ const execSass = (src, outputStyle, includePaths, sourceMap) => {
 };
 
 function sass() {
+  inform.start('Running Sass');
   const outputStyle = `--output-style ${(PRODUCTION ? 'compressed' : 'expanded')}`;
   const sourceMap = PRODUCTION ? '' : '--source-map true';
 
   shell.exec(`mkdir -p ${PATHS.dest}`);
 
   execSass(PATHS.src, outputStyle, '', sourceMap);
+  return inform.done();
 };
 
 sass();

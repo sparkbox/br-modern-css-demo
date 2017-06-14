@@ -14,21 +14,21 @@ const timer = {
   }
 };
 
-module.exports = function start(msg) {
+exports.start = function start(msg) {
   timer.start();
   return console.log('\n' + chalk.bgBlue.black(` - ${ msg } - `));
 }
 
-module.exports = function msg(msg) {
+exports.msg = function msg(msg) {
   return console.log(chalk.cyan(msg));
 }
 
-module.exports = function done(msg) {
+exports.done = function done(msg) {
   timer.stop();
   if(msg) console.log('\n' + msg);
   return console.log(timer.time());
 }
 
-module.exports = function err(msg) {
+exports.err = function err(msg) {
   return console.log(chalk.bgRed.bold(msg));
 }
