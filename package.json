@@ -1,15 +1,22 @@
 {
-  "name": "${_.kebabCase(projectName)}",
+  "name": "modern-css-demo",
   "version": "1.0.0",
-  "description": "${_.kebabCase(projectDescription)}",
-  "author": "Put Your Name Here :)",
+  "description": "A Demo of Modern CSS",
+  "author": "catherine meade <cat@heysparkbox.com>",
   "scripts": {
-    "postinstall": "node sds-init.js",
-    "start": "run-p css server",
-    "script-1": "do something",
-    "script-2": "do something"
+    "start": "run-p sass",
+    "sass": "node tasks/sass.js"
   },
   "devDependencies": {
     "shelljs": "latest"
+  },
+  "repository": "https://github.com/sparkbox/br-modern-css-demo",
+  "license": "MIT",
+  "dependencies": {
+    "globby": "^6.1.0",
+    "inform": "0.0.2",
+    "node-sass": "^4.5.3",
+    "npm-run-all": "^4.0.2",
+    "scss-splinter": "^0.4.3"
   }
 }
